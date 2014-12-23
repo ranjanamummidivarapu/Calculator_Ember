@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="css/style.css">
+      <script src="libs/jquery-1.11.1.min.js"></script>
+      <script src="libs/handlebars-v1.3.0.js"></script>
+      <script src="libs/ember.js"></script>
+      <script src="libs/ember-data.js"></script>
+      <script src="js/application.js"></script>
+      <script src ="js/router.js"></script>
+      <script src = "model/CalculatorModel.js"></script>
+      <script src = "view/CalculatorView.js"></script>
+      <script src = "controller/CalculatorController.js"></script>
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="calculator">
+       {{input type = "text" id = view.textboxId value = view.textboxValue}}
+       <div>
+            {{#each number in view.numberButtons}}
+                <button id = "b{{number}}" value = {{number}} {{action "append" number }}>{{number}}</button>
+            {{/each}}
+       </div>
+       <div>
+            {{#each operator in view.operatorButtons}}
+                <button id = "b{{operator}}" value = "{{operator}} "{{action "compute" operator }}>{{operator}}</button>
+            {{/each}}
+       </div>
+    </script>
+  </body>
+</html>
